@@ -1,0 +1,68 @@
+<header class="bg__dark text-white">
+  <nav class="p-4">
+    <div class="nav__left text-2xl font-bold tracking-wider">
+      <h1>Product Explorer</h1>
+    </div>
+    <div id="menu" class="nav__right text-xl font-bold tracking-widest">
+      <a
+        (click)="toggleNav()"
+        class="hover:border-b-2 hover:border-white"
+        [routerLinkActive]="'link__active'"
+        routerLink="home"
+        >Home</a
+      >
+      <a
+        *ngIf="userExist === false || userRole === 'USER'"
+        (click)="toggleNav()"
+        class="hover:border-b-2 hover:border-white"
+        [routerLinkActive]="'link__active'"
+        routerLink="products"
+        >Products</a
+      >
+      <a
+        *ngIf="userExist === true && userRole === 'ADMIN'"
+        (click)="toggleNav()"
+        class="hover:border-b-2 hover:border-white"
+        [routerLinkActive]="'link__active'"
+        routerLink="admin/products"
+        >Products</a
+      >
+      <a
+        *ngIf="userExist === true && userRole === 'ADMIN'"
+        (click)="toggleNav()"
+        class="hover:border-b-2 hover:border-white"
+        [routerLinkActive]="'link__active'"
+        routerLink="admin/review"
+        >Reviews</a
+      >
+      <a
+        *ngIf="userExist === false"
+        (click)="toggleNav()"
+        class="hover:border-b-2 hover:border-white"
+        [routerLinkActive]="'link__active'"
+        routerLink="signup"
+        >Signup</a
+      >
+      <a
+        *ngIf="userExist === false"
+        (click)="toggleNav()"
+        class="hover:border-b-2 hover:border-white"
+        [routerLinkActive]="'link__active'"
+        routerLink="login"
+        >Login</a
+      >
+      <a
+        *ngIf="userExist === true"
+        class="hover:border-b-2 hover:border-white"
+        (click)="logout()"
+        routerLink="/home"
+        >Logout</a
+      >
+    </div>
+  </nav>
+  <div class="menuIcon">
+    <button (click)="toggleNav()">
+      <i class="text-2xl fa-solid fa-bars-staggered"></i>
+    </button>
+  </div>
+</header>

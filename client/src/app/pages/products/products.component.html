@@ -1,0 +1,62 @@
+<app-welcome
+  bannerLink="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+></app-welcome>
+
+<div class="p-4 sm:px-10 lg:px-20">
+  <app-heading title="Search the" highlight="product"></app-heading>
+  <form
+    [formGroup]="productSearchForm"
+    class="box__shadow"
+    (ngSubmit)="getProduct()"
+  >
+    <div class="grid md:grid-cols-3 mt-4 [&>*]:m-2">
+      <app-input-box
+        formControlName="name"
+        label="Name"
+        placeholder="Name"
+        ngDefaultControl
+      ></app-input-box>
+      <app-input-box
+        formControlName="brand"
+        label="Brand"
+        placeholder="Brand"
+        ngDefaultControl
+      ></app-input-box>
+      <app-input-box
+        formControlName="code"
+        label="Code"
+        type="number"
+        placeholder="Code"
+        ngDefaultControl
+      ></app-input-box>
+    </div>
+    <div class="grid md:grid-cols-3 [&>*]:m-2">
+      <div></div>
+      <input
+        class="text-lg p-1 custom__button_primary"
+        type="submit"
+        value="Search"
+      />
+    </div>
+  </form>
+  <app-heading title="Our" highlight="Products"></app-heading>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 mt-4 [&>*]:m-2">
+    <div *ngFor="let product of products">
+      <app-productcard
+        img="{{ product.img }}"
+        name="{{ product.name }}"
+        brand="{{ product.brand }}"
+        code="{{ product.code }}"
+        content="{{ product.content }}"
+        seeLink="/product/{{ product.productId }}"
+      ></app-productcard>
+    </div>
+  </div>
+  <div
+    *ngIf="products.length === 0"
+    class="h-[500px] w-full flex justify-center items-center"
+  >
+    <img src="https://www.bookshutter.com/images/no-result-found.png" alt="" />
+  </div>
+</div>
+<app-message [isError]="isError" msg="{{ msg }}" [show]="showMsg"></app-message>

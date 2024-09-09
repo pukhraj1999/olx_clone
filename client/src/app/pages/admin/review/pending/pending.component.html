@@ -1,0 +1,20 @@
+<div class="grid md:grid-cols-2 lg:grid-cols-3 [&>*]:m-2">
+  <div *ngFor="let review of reviews">
+    <app-admin-review-card
+      userName="{{ review.userName }}"
+      productName="{{ review.productName }}"
+      [rating]="review.rating"
+      status="{{ review.status }}"
+      content="{{ review.content }}"
+      (acceptEventEmitter)="onAccept(review.reviewId)"
+      (rejectEventEmitter)="onReject(review.reviewId)"
+    ></app-admin-review-card>
+  </div>
+</div>
+<div
+  *ngIf="reviews.length === 0"
+  class="h-[500px] w-full flex justify-center items-center"
+>
+  <img src="https://www.bookshutter.com/images/no-result-found.png" alt="" />
+</div>
+<app-message [isError]="isError" msg="{{ msg }}" [show]="showMsg"></app-message>

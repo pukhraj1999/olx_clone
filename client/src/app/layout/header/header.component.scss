@@ -1,0 +1,38 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__right > a {
+  margin-right: 1rem;
+}
+
+.link__active {
+  border-bottom: 2px solid white;
+}
+.menuIcon {
+  display: none;
+}
+
+@media screen and (max-width: 650px) {
+  .menuIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+  }
+  nav {
+    display: block;
+  }
+  .nav__right {
+    display: none;
+  }
+  .active {
+    display: flex;
+    flex-direction: column;
+  }
+  .active > a {
+    margin: 5px;
+  }
+}

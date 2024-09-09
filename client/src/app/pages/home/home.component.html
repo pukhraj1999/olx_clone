@@ -1,0 +1,42 @@
+<section>
+  <app-welcome
+    bannerLink="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  ></app-welcome>
+  <app-heading title="Welcome to" highlight="Product Explorer"></app-heading>
+  <div class="p-4 sm:px-10 lg:px-20">
+    <p class="text-xl">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis aut
+      quis, facere commodi ipsa distinctio maiores, quidem assumenda recusandae
+      accusamus voluptates cumque deleniti iure explicabo? Tempore assumenda
+      officiis doloribus aliquid. Adipisci repellendus, id rerum maiores
+      inventore, omnis odit beatae saepe animi, suscipit libero possimus
+      exercitationem facilis aliquam! Id, eligendi deserunt ea, tempore
+      laboriosam facilis quibusdam, perspiciatis dolorem nam repellat totam?
+      Sapiente rerum, nihil provident debitis cumque odio facere atque, ab vero
+      blanditiis quam ullam ipsum nostrum quis tempora. Alias veniam fugit dicta
+      maxime quia voluptas incidunt architecto obcaecati nemo sapiente?0
+    </p>
+    <h1 class="text-center text-3xl md:text-4xl lg:text-5xl mt-4">
+      Our
+      <span class="font-bold primary">App Status</span>
+    </h1>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-4 [&>*]:m-2 [&>*]:p-5">
+      <app-status
+        iconClass="fa-solid fa-user-tie"
+        label="Users"
+        count="{{ users }}"
+      ></app-status>
+      <app-status
+        iconClass="fa-solid fa-cart-flatbed"
+        label="Products"
+        count="{{ products }}"
+      ></app-status>
+      <app-status
+        iconClass="fa-solid fa-chart-gantt"
+        label="Reviews"
+        count="{{ reviews }}"
+      ></app-status>
+    </div>
+  </div>
+</section>
+<app-message [isError]="isError" msg="{{ msg }}" [show]="showMsg"></app-message>

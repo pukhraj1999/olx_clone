@@ -1,0 +1,42 @@
+<app-welcome
+  bannerLink="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+></app-welcome>
+<div class="p-4 sm:px-10 lg:px-20">
+  <app-heading title="Login to" highlight="Explore"></app-heading>
+  <form
+    [formGroup]="loginForm"
+    class="grid md:grid-cols-2 mt-4 [&>*]:m-2 box__shadow"
+    (ngSubmit)="getUser()"
+  >
+    <app-input-box
+      formControlName="email"
+      label="Email"
+      placeholder="Email"
+      type="email"
+      [isError]="this.email?.dirty === true && email?.invalid === true"
+      errorMsg="Email field is invalid!!"
+      ngDefaultControl
+    ></app-input-box>
+    <app-input-box
+      formControlName="password"
+      label="Password"
+      placeholder="Password"
+      type="password"
+      [isError]="this.password?.dirty === true && password?.invalid === true"
+      errorMsg="Password field must contains 1st capital character,length must be between 8 to 20,must contain 1 lowercase character and special character!!"
+      ngDefaultControl
+    ></app-input-box>
+    <input
+      class="text-lg p-1 custom__button_primary"
+      type="submit"
+      [disabled]="loginForm.invalid"
+      value="Login"
+    />
+    <a
+      class="text-center text-lg p-1 custom__button_secondary"
+      routerLink="/signup"
+      >Create Account</a
+    >
+  </form>
+</div>
+<app-message [isError]="isError" msg="{{ msg }}" [show]="showMsg"></app-message>

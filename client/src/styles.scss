@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//variables
+$primary: #ec4445;
+$secondary: #313a69;
+$tertiary: orange;
+$dark: #09090b;
+$light: white;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+// solved height problem
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  scroll-behavior: smooth;
+}
+.bg__dark {
+  background-color: $dark;
+}
+.bg__light {
+  background-color: $light;
+}
+.bg__primary {
+  background-color: $primary;
+}
+.bg__secondary {
+  background-color: $secondary;
+}
+.primary {
+  color: $primary;
+}
+.secondary {
+  color: $secondary;
+}
+.tertiary {
+  color: $tertiary;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.box__shadow {
+  box-shadow: 1px 0px 2px 2px black;
+}
+.text__shadow {
+  text-shadow: 0px 2px 2px black;
+}
+.banner > img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+.custom__button_primary {
+  border-radius: 5px;
+  border: 2px solid $primary;
+  background-color: $primary;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+    background-color: white;
+  }
+}
+.custom__button_secondary {
+  border-radius: 5px;
+  border: 2px solid $secondary;
+  background-color: $secondary;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: $secondary;
+    background-color: white;
+  }
+}
+.custom__button_tertiary {
+  border-radius: 5px;
+  border: 2px solid $tertiary;
+  background-color: $tertiary;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: $tertiary;
+    background-color: white;
+  }
+}

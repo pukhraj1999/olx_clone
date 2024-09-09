@@ -1,0 +1,79 @@
+<app-welcome
+  bannerLink="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+></app-welcome>
+<div class="p-4 sm:px-10 lg:px-20">
+  <form
+    [formGroup]="productForm"
+    class="box__shadow"
+    (ngSubmit)="editProduct()"
+  >
+    <app-heading
+      title="Edit your"
+      highlight="Product"
+      colorClass="tertiary"
+    ></app-heading>
+    <div class="grid md:grid-cols-2 mt-2 [&>*]:m-2">
+      <app-input-box
+        formControlName="name"
+        label="Name"
+        value="{{ prevProduct.name }}"
+        placeholder="Name"
+        [isError]="name?.dirty === true && name?.invalid === true"
+        errorMsg="Name field is invalid!!"
+        ngDefaultControl
+      ></app-input-box>
+      <app-input-box
+        formControlName="code"
+        label="Code"
+        value="{{ prevProduct.code }}"
+        type="number"
+        placeholder="Code"
+        [isError]="code?.dirty === true && code?.invalid === true"
+        errorMsg="Code field is invalid!!"
+        ngDefaultControl
+      ></app-input-box>
+      <app-input-box
+        formControlName="brand"
+        label="Brand"
+        value="{{ prevProduct.brand }}"
+        placeholder="Brand"
+        [isError]="brand?.dirty === true && brand?.invalid === true"
+        errorMsg="Brand field is invalid!!"
+        ngDefaultControl
+      ></app-input-box>
+      <app-input-box
+        formControlName="img"
+        label="Image Link"
+        value="{{ prevProduct.img }}"
+        placeholder="Image Link"
+        [isError]="img?.dirty === true && img?.invalid === true"
+        errorMsg="Image Link field is invalid!!"
+        ngDefaultControl
+      ></app-input-box>
+    </div>
+    <div class="p-2">
+      <app-big-input-box
+        formControlName="content"
+        label="Content"
+        value="{{ prevProduct.content }}"
+        placeholder="Type about the product"
+        [isError]="content?.dirty === true && content?.invalid === true"
+        errorMsg="Content field is invalid!!"
+        ngDefaultControl
+      ></app-big-input-box>
+    </div>
+    <div class="grid md:grid-cols-2 [&>*]:m-2">
+      <input
+        class="text-lg p-1 custom__button_tertiary"
+        type="submit"
+        value="Edit Product"
+      />
+      <a
+        class="text-center text-lg p-1 custom__button_secondary"
+        routerLink="/admin/products"
+        >Go Back</a
+      >
+    </div>
+  </form>
+</div>
+<app-message [isError]="isError" msg="{{ msg }}" [show]="showMsg"></app-message>

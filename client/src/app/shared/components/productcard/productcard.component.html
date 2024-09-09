@@ -1,0 +1,38 @@
+<div class="box__shadow">
+  <img
+    style="object-fit: cover"
+    class="h-[300px] w-full"
+    src="{{ img }}"
+    alt="{{ name }}"
+  />
+  <div class="p-2">
+    <h2 class="sm:text-3xl text-xl text-center primary">{{ name }}</h2>
+    <div class="flex justify-between items-center">
+      <h3 class="sm:text-2xl text-lg secondary">{{ brand }}</h3>
+      <h3 class="sm:text-2xl text-lg secondary">{{ code }}</h3>
+    </div>
+    <p class="leading-4 text-lg">
+      {{ content }}
+    </p>
+    <div *ngIf="isAdmin === false" class="grid mt-2">
+      <a
+        class="text-lg text-center p-1 custom__button_primary"
+        routerLink="{{ seeLink }}"
+        >See more</a
+      >
+    </div>
+    <div *ngIf="isAdmin === true" class="grid md:grid-cols-2 [&>*]:m-2">
+      <a
+        class="text-center text-lg p-1 custom__button_tertiary"
+        routerLink="{{ editLink }}"
+        >Edit Product</a
+      >
+      <button
+        class="text-center text-lg p-1 custom__button_secondary"
+        (click)="onDelete()"
+      >
+        Delete Product
+      </button>
+    </div>
+  </div>
+</div>

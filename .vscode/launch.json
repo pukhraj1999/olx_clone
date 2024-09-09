@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-ProductApplication<product_application>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.nagarro.product_application.ProductApplication",
+      "projectName": "product_application",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

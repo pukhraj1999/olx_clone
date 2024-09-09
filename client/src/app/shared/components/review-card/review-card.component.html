@@ -1,0 +1,15 @@
+<div class="p-2 box__shadow m-2">
+  <div class="flex justify-between">
+    <h3 class="font-bold secondary">{{ userName }}</h3>
+    <div class="[&>*]:mx-1 flex">
+      <app-star [glow]="rating >= 1 ? true : false"></app-star>
+      <app-star [glow]="rating >= 2 ? true : false"></app-star>
+      <app-star [glow]="rating >= 3 ? true : false"></app-star>
+      <app-star [glow]="rating >= 4 ? true : false"></app-star>
+      <app-star [glow]="rating >= 5 ? true : false"></app-star>
+    </div>
+  </div>
+  <p class="leading-4">
+    {{ content }}
+  </p>
+</div>

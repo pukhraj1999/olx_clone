@@ -1,0 +1,40 @@
+<div class="grid md:grid-cols-2 mt-4 box__shadow">
+  <div class="review__img">
+    <img
+      class="h-[500px] w-full"
+      style="object-fit: cover"
+      src="{{ img }}"
+      alt="{{ name }}"
+    />
+  </div>
+  <div class="product__detail">
+    <div class="p-2 box__shadow">
+      <h2 class="sm:text-5xl text-2xl text-center primary">{{ name }}</h2>
+      <div class="flex justify-between items-center">
+        <h3 class="sm:text-4xl text-lg secondary">{{ brand }}</h3>
+        <h3 class="sm:text-4xl text-lg secondary">{{ code }}</h3>
+      </div>
+      <p class="leading-4 sm:text-lg">
+        {{ content }}
+      </p>
+    </div>
+    <div class="review">
+      <h2 class="sm:text-5xl text-2xl text-center primary">Reviews</h2>
+      <h2 *ngIf="reviews.length === 0" class="text-2xl secondary p-4">
+        No Review Available ...
+      </h2>
+      <div
+        *ngIf="reviews.length !== 0"
+        class="p-4 h-[150px] lg:h-[230px] overflow-y-scroll"
+      >
+        <div *ngFor="let review of reviews">
+          <app-review-card
+            userName="{{ review.userName }}"
+            [rating]="review.rating"
+            content="{{ review.content }}"
+          ></app-review-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<app-welcome
+  bannerLink="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+></app-welcome>
+<div class="p-4 sm:px-10 lg:px-20">
+  <app-heading
+    title="Have a Glace at "
+    highlight="{{ product.name }}"
+  ></app-heading>
+  <app-product-detail
+    img="{{ product.img }}"
+    name="{{ product.name }}"
+    brand="{{ product.brand }}"
+    code="{{ product.code }}"
+    content="{{ product.content }}"
+    [reviews]="reviews"
+  ></app-product-detail>
+  <div class="give__review mt-4">
+    <app-heading title="Give Your" highlight="Review"></app-heading>
+    <div class="flex justify-center [&>*]:m-2 text-4xl">
+      <button (click)="changeRating(1)">
+        <app-star [glow]="rating >= 1 ? true : false"></app-star>
+      </button>
+      <button (click)="changeRating(2)">
+        <app-star [glow]="rating >= 2 ? true : false"></app-star>
+      </button>
+      <button (click)="changeRating(3)">
+        <app-star [glow]="rating >= 3 ? true : false"></app-star>
+      </button>
+      <button (click)="changeRating(4)">
+        <app-star [glow]="rating >= 4 ? true : false"></app-star>
+      </button>
+      <button (click)="changeRating(5)">
+        <app-star [glow]="rating >= 5 ? true : false"></app-star>
+      </button>
+    </div>
+    <form [formGroup]="reviewForm" (ngSubmit)="sendReviewRequest()">
+      <app-big-input-box
+        formControlName="content"
+        placeholder="Your Review"
+        [isError]="content?.dirty === true && content?.invalid === true"
+        errorMsg="Review field is invalid!!"
+        ngDefaultControl
+      ></app-big-input-box>
+      <div class="grid md:grid-cols-2 mt-1 [&>*]:m-2">
+        <input
+          class="text-lg p-1 custom__button_primary"
+          type="submit"
+          [disabled]="reviewForm.invalid"
+          value="Send Request"
+        />
+        <a
+          class="text-center text-lg p-1 custom__button_secondary"
+          routerLink="/products"
+          >Go Back</a
+        >
+      </div>
+    </form>
+  </div>
+</div>
+<app-message [isError]="isError" msg="{{ msg }}" [show]="showMsg"></app-message>

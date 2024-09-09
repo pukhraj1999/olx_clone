@@ -1,0 +1,10 @@
+<div *ngIf="show === true" id="modal" class="modal__box">
+  <div *ngIf="isError === false" class="modal box__shadow m-4 bg-green-500">
+    <p class="text-white text-xl p-2">{{ msg }}</p>
+  </div>
+  <div *ngIf="isError === true" class="modal box__shadow m-4 bg-red-500">
+    <p class="text-white text-xl p-2">
+      {{ msg }}
+    </p>
+  </div>
+</div>

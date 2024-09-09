@@ -1,0 +1,70 @@
+<div class="box__shadow p-2">
+  <div class="grid grid-cols-2">
+    <div class="sm:text-lg">
+      <p class="font-bold">User Name:</p>
+      <p>{{ userName }}</p>
+    </div>
+    <div>
+      <p class="font-bold sm:text-lg">Rating:</p>
+      <div class="flex items-center [&>*]:m-[2px]">
+        <app-star [glow]="rating >= 1 ? true : false"></app-star>
+        <app-star [glow]="rating >= 2 ? true : false"></app-star>
+        <app-star [glow]="rating >= 3 ? true : false"></app-star>
+        <app-star [glow]="rating >= 4 ? true : false"></app-star>
+        <app-star [glow]="rating >= 5 ? true : false"></app-star>
+      </div>
+    </div>
+    <div class="sm:text-lg">
+      <p class="font-bold">Product Name:</p>
+      <p>{{ productName }}</p>
+    </div>
+    <div class="sm:text-lg">
+      <p class="font-bold">Status:</p>
+      <p>{{ status }}</p>
+    </div>
+  </div>
+  <div class="bg__dark m-1 h-[2px] w-full"></div>
+  <p class="text-lg leading-4">
+    <span class="font-bold">Content: </span> {{ content }}
+  </p>
+  <div
+    *ngIf="toAccepted === false && toRejected === false"
+    class="grid grid-cols-2 [&>*]:m-2"
+  >
+    <button
+      class="text-center text-lg p-1 custom__button_primary"
+      (click)="accept()"
+    >
+      Accept
+    </button>
+    <button
+      class="text-center text-lg p-1 custom__button_tertiary"
+      (click)="reject()"
+    >
+      Reject
+    </button>
+  </div>
+  <div *ngIf="toAccepted === true" class="grid grid-cols-2 [&>*]:m-2">
+    <button
+      class="text-center text-lg p-1 custom__button_primary"
+      (click)="accept()"
+    >
+      Change to Accept
+    </button>
+    <button
+      class="text-center text-lg p-1 custom__button_secondary"
+      (click)="onDelete()"
+    >
+      Delete Review
+    </button>
+  </div>
+
+  <div *ngIf="toRejected === true" class="grid [&>*]:m-2">
+    <button
+      class="text-center text-lg p-1 custom__button_tertiary"
+      (click)="reject()"
+    >
+      Change to Reject
+    </button>
+  </div>
+</div>
